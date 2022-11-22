@@ -1,7 +1,7 @@
 ---
-title: "Your A4 Report Title (TODO: Revise title)"
-author: "Your Name"
-date: '2022-11-01'
+title: "A4 Incarceration Data"
+author: "Kristen Do"
+date: '2022-11-21'
 output: html_document
 ---
 
@@ -11,35 +11,50 @@ source("../source/analysis.R")
 ```
 
 ## Abstract 
-[TODO: Include a short abstract (about 50 words)]
-
-# Test (TODO: Remove before submission!!)
-```{r echo=FALSE}
-q1_string <- test_query1()
-num <- 5
-```
-As you know, this is a markdown report. The [R Markdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) is **useful!**
-
-* Here's a test of a dynamic variable. Say **"`r q1_string`!!!** 
-* Here's another test. A vector
-of numbers: `r test_query2(num)`.
-
-Recall that _{r echo=TRUE}_ can be used to display the code, 
-which is very useful when developing and debugging a report. Here's an example: 
-
-```{r echo=TRUE}
-num <- 5
-sum <- sum(test_query2(num))
-print(sum)
-```
+Our main question is what type of inequality patterns can we expose through our incarceration dataset? I am concerned with the fact that there are a disproportionate incarceration of people of color; which can negatively affect many social groups that are incarcerated. To address this concern, I am going to organize and utilize our dataset to expose these truths of inequality. 
 
 ## Introduction 
-[TODO]
+Mass incarceration is a prevalent issue within the U.S. The issue resides mainly with the racial groups that are being targeted and brought into mass incarceration. As we will view within our data, rates between people of color, immigrants, and those experiencing poverty are at a much higher capacity compared to those of opposite categories. In which we question, how much larger these rates are? And which racial group is the majority within mass incarceration? These are not recent issues, but an issue that has been prevalent for decades within our history. As explained by Vera, "mass incarceration began to pick up steam as politicians took steps to curb gains from the Civil Rights Movement and to link crime with race". Mass incarcerations rips apart families, ruins dignity and creates a negative connotation towards these social groups. 
+
+These patterns that seem to be a continuous cycle throughout decades will only stay prevalent unless we expose the unfair disproportionate rates between social groups. These issues in hand are a result of policymakers and elected officials who create indirect and direct laws and orders that increase these rates. The stakeholders in direct affect are the users and families being affected by these issues. This is also an important resource for researchers. In hand, this can indirectly affect policymakers and elected officials by exposing these rates and bringing awareness towards their unfair treatment and use of power. 
+
+```{r Incarcernation Data}
+source("../source/analysis.R")
+read.table(incarceration_df)
+```
 
 ## Data Summary 
-[TODO]
+For my data summary, I chose to focus on jail populations between the Black and White community. While computing data, I discovered a large difference between each values. I found there was a drastic difference between these values and similar in range for others. I first computed the highest and lowest jail populations across all states within the most recent year. I discovered that there is a higher black jail population amongst the states in comparison to white jail population. I then computed the average black and white jail population across all states by 2018, in which I discovered theres a higher rate amongst the black jail population where there was an average of 83.57. There was also a significant difference between black and white jail populations in California. Where, the black jail population averaged at 13,144 and white jail populations averaged at 7,036. All of which, shows a pattern where theres higher rates in colored jail populations in comparison to white jail populations. 
 
-[TODO ... other sections ... See Canvas for details]
+## Growth of the U.S. Prison Population
 
-_All the very best with your work!_
+```{r plot, echo=TRUE}
+source("../source/analysis.R")
+plot(plot_jail_pop_for_us)
+```
+In this chart, we compute data to reveal the increase of jail populations within the U.S. It is easily recognizable that theres a major increase in jail population sometime after the 1990s. After the major spike leading into the 2000s, rates have kept a steady high rate and continues to current day.
+
+## Growth of Prison Population by State 
+
+```{r plot, echo= TRUE}
+source("../source/analysis.R")
+plot(plot_jail_pop_by_states)
+```
+Shown within my chart, theres a higher growth rate of the U.S prison population in California. I compared Washington, Oregon, and California rates over the years. As seen on my chart, California has a significantly higher rate in comparison to Washington and Oregon. 
+
+## Variable Comparison 
+
+```{r chart, echo=TRUE}
+source("../source/analysis.R")
+plot(variable_comparison)
+```
+For my variable comparison chart I chose to focus on the difference between gender jail populations. I wondered if there is any significant difference between genders? And whether or not gender can factor in to mass incarceration? As shown in my graph, though male and female jail populations seemingly look similar in rates as they both show higher rates throughout the 2000s; it is evident theres a higher rate in male jail population rates in comparison to female jail population rates. There was a decrease in female jail population rates around 2010, where as male jail populations kept a steady increase over those years. From my chart, it is evident that all though not a significant difference, there is still a difference between genders within jail population rates. Showing that gender can indeed factor into mass incarceration rates. 
+
+## Map 
+
+```{r map, echo=TRUE}
+source("../source/analysis.R")
+plot(map_chart)
+```
+My map focuses on female to male jail population ratios within the U.S. As shown on my maps values, the darker the shading across the map represents a lower female to male jail population ratio. And as seen on my map there is clear that female to male jail ratios regarding jail populations are lower across the U.S. And if we were to reverse the ratio, to male to female jail population rates then the shading would be lighter; indicating a higher ratio. In this way, we are able to conclude there is higher jail population rates for men in comparison to females; supporting our question earlier regarding whether or not gender factors into mass incarcerations. 
 

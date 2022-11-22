@@ -49,12 +49,7 @@ lowest_white_pop <- incarceration_df %>%
 
 print(lowest_white_pop)
 
-
 ### Average jail population across all countries by 2018 
-
-tester <- incarceration_df %>%
-  mean(black_jail_pop)
-
 average_black_pop <- incarceration_df %>%
   filter(year == 2018) %>%
   summarise(average_black = mean(black_jail_pop, na.rm=TRUE)) %>%
@@ -82,7 +77,7 @@ black_pop_in_ca <- incarceration_df %>%
 
 print(black_pop_in_ca) 
  
-# Average White jail population in WA
+# Average White jail population in CA
 white_pop_in_ca <- incarceration_df %>%
   filter(state == "CA") %>%
   summarise(white_jail_pop = max(white_jail_pop, na.rm = TRUE)) %>%
@@ -155,7 +150,6 @@ print(plot_jail_pop_by_states(c("WA", "OR", "CA")))
 
 
 #----------------------------------------------------------------------------#
-
 ## Section 5  ---- 
 #----------------------------------------------------------------------------#
 
@@ -206,7 +200,7 @@ theme <- theme_bw() +
     panel.border = element_blank()      # remove border around plot
   )
 
-# Creating my dataframes for my map 
+# Creating my data frames for my map 
 gender_ratio <- incarceration_df %>%
   drop_na(female_jail_pop_rate, male_jail_pop_rate) %>%
   filter(state == "WA") %>%
@@ -244,9 +238,3 @@ map_chart <- ggplot(map_data) +
   theme()
 
 print(map_chart)
-
-
-
-
-  
-
